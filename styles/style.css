@@ -55,9 +55,9 @@
   --h1-line-height: 0.94;
   /* END: Переменные h1 */
 
-  /* BEGIN: Переменные h3 */
-  --h3-font-size: 3rem;
-  /* END: Переменные h3 */
+  /* BEGIN: Переменные h2 */
+  --h2-font-size: 3rem;
+  /* END: Переменные h2 */
 }
 
 /* BEGIN: Общие и вспомогательные стили */
@@ -98,7 +98,7 @@ html {
   inline-size: 100%;
 }
 
-.sr-only {
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -146,13 +146,16 @@ ol {
 
 /* BEGIN: Стили секции Result */
 .result {
+  display: flex;
+  flex-direction: column;
   grid-column: span 4;
+  gap: 16px;
   margin: 0;
   padding: 0;
 }
 
 .result__video-container {
-  margin: 0;
+  margin: 0 0 16px 0;
   padding: 0;
   inline-size: 100%;
 }
@@ -163,11 +166,131 @@ ol {
   padding: 0;
   inline-size: 100%;
 }
+
+/* BEGIN: Стили формы поиска */
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.search-form__fieldset {
+  display: block;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.search-form__fieldset-title {
+  margin: 0 0 5px 0;
+  padding: 0;
+  color: var(--headings-color);
+  font-family: var(--body-font-family);
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  text-transform: none;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.search-form__checkbox {
+  margin: 0;
+  padding: 0;
+}
+
+.search-form__label {
+  --search-form-label-color: var(--color-base);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.search-form__pseudo-checkbox {
+  --search-form-pseudo-checkbox-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--search-form-label-color);
+  cursor: pointer;
+  inline-size: var(--search-form-pseudo-checkbox-size);
+  block-size: var(--search-form-pseudo-checkbox-size);
+}
+
+.search-form__pseudo-checkbox::after {
+  display: block;
+  background-color: currentColor;
+  inline-size: calc(var(--search-form-pseudo-checkbox-size) - 4px);
+  block-size: calc(var(--search-form-pseudo-checkbox-size) - 4px);
+}
+
+.search-form__label-text {
+  margin: 0;
+  padding: 0;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+}
+
+.search-form__checkbox:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+.search-form__checkbox:focus {
+  outline: none;
+}
+
+.search-form__checkbox:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+/* BEGIN: Стили кнопки */
+.button {
+  --button-font-size: var(--font-size-base);
+  --button-font-weight: var(--font-weight-bold);
+  --button-line-height: var(--line-height-base);
+  --button-text-align: center;
+  --button-color: var(--color-base);
+  --button-bg-color: transparent;
+  --button-border: 1px solid currentColor;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  border: var(--button-border);
+  padding: 6px 12px;
+  color: var(--button-color);
+  font-family: var(--body-font-family);
+  font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
+  line-height: var(--button-line-height);
+  text-align: var(--button-text-align);
+  text-transform: var(--button-text-transform);
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+}
+/* END: Стили кнопки */
+
+/* END: Стили формы поиска */
+
 /* END: Стили секции Result */
 
 /* BEGIN: Стили секции Details */
 .content__details {
+  display: flex;
+  flex-direction: column;
   grid-column: span 2;
+  gap: 6px;
   margin: 0;
   padding: 0;
 }
@@ -176,6 +299,7 @@ ol {
   margin: 0;
   padding: 0;
   color: var(--headings-color);
+  font-family: var(--headings-font-family);
   font-weight: var(--headings-font-weight);
   font-size: var(--h1-font-size);
   line-height: var(--h1-line-height);
@@ -229,6 +353,7 @@ ol {
 .content__video-card {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 5px;
   margin: 0;
   padding: 0;
   inline-size: 100%;
@@ -243,11 +368,15 @@ ol {
 .content__video-card-title {
   margin: 0 0 6px 0;
   padding: 0;
+  overflow: hidden;
   color: var(--headings-color);
+  font-family: var(--headings-font-family);
   font-weight: var(--headings-font-weight);
-  font-size: var(--h3-font-size);
-  line-height: var(--h3-line-height);
+  font-size: var(--h2-font-size);
+  line-height: var(--h2-line-height);
   text-transform: var(--headings-text-transform);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content__video-card-description {

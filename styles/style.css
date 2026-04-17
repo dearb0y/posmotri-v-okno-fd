@@ -84,6 +84,7 @@ html {
   color: var(--body-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
   font-style: var(--body-font-style);
   line-height: var(--body-line-height);
   background-color: var(--body-bg-color);
@@ -93,7 +94,7 @@ html {
 
 .content {
   display: grid;
-  grid-template-columns: minmax(0, 711px) minmax(0, 400px);
+  grid-template-columns: minmax(0, 711px) minmax(0, 399px);
   align-items: end;
   gap: 30px;
   margin: 0;
@@ -178,7 +179,7 @@ ol {
 /* BEGIN: Стили формы поиска */
 .search-form {
   display: grid;
-  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  grid-template-columns: 1fr min-content min-content;
   align-items: start;
   gap: 40px;
   margin: 0;
@@ -208,8 +209,7 @@ ol {
   align-items: center;
   gap: 5px;
   margin: 0;
-  padding: 0 1px;
-  inline-size: fit-content;
+  padding: 0;
 }
 
 .search-form__textfield {
@@ -220,7 +220,7 @@ ol {
   border: none;
   border-block-start: 1px solid var(--form-field-color);
   border-block-end: 1px solid var(--form-field-color);
-  padding: 0 14px 0 0;
+  padding: 2px 4px 2px 0;
   color: var(--form-field-color);
   font-family: var(--body-font-family);
   font-weight: var(--body-font-weight);
@@ -325,7 +325,7 @@ ol {
   align-items: center;
   margin: 0;
   border: var(--button-border);
-  padding: 6px 73.5px;
+  padding: 5px 72.6px;
   color: var(--button-color);
   font-family: var(--body-font-family);
   font-weight: var(--button-font-weight);
@@ -356,6 +356,10 @@ ol {
 
 .search-form__submit-button {
   align-self: end;
+}
+
+.more-button {
+  inline-size: 100%;
 }
 /* END: Стили кнопки */
 
@@ -482,6 +486,10 @@ ol {
   margin: 0;
   padding: 0;
   line-height: 1.62rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 
 .content__video-card-thumbnail {

@@ -1,1 +1,1 @@
-[](https://github.com/dearb0y/posmotri-v-okno-fd)
+https://github.com/dearb0y/posmotri-v-okno-fd

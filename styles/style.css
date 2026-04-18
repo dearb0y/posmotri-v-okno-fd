@@ -97,6 +97,7 @@ html {
   display: grid;
   grid-template-columns: minmax(0, 711px) minmax(0, 399px);
   align-items: end;
+  justify-content: center;
   gap: 30px;
   margin: 0;
   padding: 0;

@@ -99,7 +99,7 @@ html {
   align-items: end;
   gap: 30px;
   margin: 0;
-  padding: 133px 30px;
+  padding: 0;
   inline-size: 100%;
 }
 
@@ -405,7 +405,7 @@ ol {
   gap: 30px;
   margin: 0;
   padding: 0 3px 3px 2px;
-  overflow-y: auto;
+  overflow: auto;
   inline-size: 100%;
   block-size: 298px;
 }
